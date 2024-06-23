@@ -27,6 +27,9 @@
     <!-- Otros scripts que puedas necesitar -->
     <script src="{{ asset('js/app.js') }}"></script>
 
+    <!-- FontAwesome -->   
+    <script src="https://kit.fontawesome.com/5aac904b55.js" crossorigin="anonymous"></script>
+
     @yield('scripts')
 </head>
 <body class="flex items-center justify-center flex-col">

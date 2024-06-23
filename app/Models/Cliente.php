@@ -42,18 +42,35 @@ class Cliente extends Model
         return Cliente::orderBy('idCliente')->select('idCliente', 'nombre', 'apellido')->get();
     }
 
+
     public function guardar()
     {
-        $cliente = Cliente::updateOrCreate(
-            ['idCliente' => $this->idCliente],
-            [
-                'nombre' => $this->nombre,
-                'apellido' => $this->apellido,
-                'edad' => $this->edad,
-                'dni' => $this->dni,
-            ]
-        );
+        $cliente = new Cliente(); // Crear una nueva instancia del modelo Nota
+    
+        // Asignar los valores a los atributos del modelo
+        $cliente->nombre = $this->nombre;
+        $cliente->apellido = $this->apellido;
+        $cliente->edad = $this->edad;
+        $cliente->dni = $this->dni;
+    
+        // Guardar el nuevo registro en la base de datos
+        $cliente->save();
+    
+        // Opcional: Puedes retornar el modelo de Nota creado si lo necesitas
+        return $cliente;
     }
+    // public function guardar()
+    // {
+    //     $cliente = Cliente::updateOrCreate(
+    //         ['idCliente' => $this->idCliente],
+    //         [
+    //             'nombre' => $this->nombre,
+    //             'apellido' => $this->apellido,
+    //             'edad' => $this->edad,
+    //             'dni' => $this->dni,
+    //         ]
+    //     );
+    // }
     
 
 

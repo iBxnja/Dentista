@@ -38,18 +38,37 @@ class Nota extends Model
 }
     
 
-    public function guardar()
-    {
-        $nota = Nota::updateOrCreate(
-            ['idNota' => $this->idNota],
-            [
-                'titulo' => $this->titulo,
-                'texto' => $this->texto,
-                'numeroSesion' => $this->numeroSesion,
-                'fk_idCliente' => $this->fk_idCliente,
-            ]
-        );
-    }
+
+public function guardar()
+{
+    $nota = new Nota(); // Crear una nueva instancia del modelo Nota
+
+    // Asignar los valores a los atributos del modelo
+    $nota->titulo = $this->titulo;
+    $nota->texto = $this->texto;
+    $nota->numeroSesion = $this->numeroSesion;
+    $nota->fk_idCliente = $this->fk_idCliente;
+
+    // Guardar el nuevo registro en la base de datos
+    $nota->save();
+
+    // Opcional: Puedes retornar el modelo de Nota creado si lo necesitas
+    return $nota;
+}
+
+
+    // public function guardar()
+    // {
+    //     $nota = Nota::updateOrCreate(
+    //         ['idNota' => $this->idNota],
+    //         [
+    //             'titulo' => $this->titulo,
+    //             'texto' => $this->texto,
+    //             'numeroSesion' => $this->numeroSesion,
+    //             'fk_idCliente' => $this->fk_idCliente,
+    //         ]
+    //     );
+    // }
     
     #--------------------------------------------------------------------------------------
     public function eliminar(){

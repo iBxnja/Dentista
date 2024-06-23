@@ -35,7 +35,6 @@ class Odontograma extends Model
         $this->observacion = $request->input('observacion');
         $this->numeroOdontograma = $request->input('numeroOdontograma');
         $this->fk_idCliente = $request->input('fk_idCliente');
-
         $this->obraSocial = $request->input('obraSocial');
         $this->codigo = $request->input('codigo');
         $this->mes = $request->input('mes');
@@ -88,40 +87,79 @@ class Odontograma extends Model
     }
     
 
-
     public function guardar($datosDientes)
-{
-    // Actualizar o crear el registro en la base de datos
-    $this->updateOrCreate(
-        ['idOdontograma' => $this->idOdontograma],
-        [
-            'piezasPadecientes' => $this->piezasPadecientes,
-            'cariado' => $this->cariado,
-            'obturado' => $this->obturado,
-            'perdida' => $this->perdida,
-            'extraccion' => $this->extraccion,
-            'sano' => $this->sano,
-            'observacion' => $this->observacion,
-            'fk_idCliente' => $this->fk_idCliente,
-            'numeroOdontograma' => $this->numeroOdontograma,
-            'lugarTitular' => $this->lugarTitular,
-            'localidad' => $this->localidad,
-            'domicilio' => $this->domicilio,
-            'fechaNac' => $this->fechaNac,
-            'edad' => $this->edad,
-            'parentesco' => $this->parentesco,
-            'grupoFamiliar' => $this->grupoFamiliar,
-            'titular' => $this->titular,
-            'plan' => $this->plan,
-            'afiliado' => $this->afiliado,
-            'anio' => $this->anio,
-            'mes' => $this->mes,
-            'codigo' => $this->codigo,
-            'obraSocial' => $this->obraSocial,
-            'dientes' => json_encode($datosDientes),
-        ]
-    );
-}
+    {
+        // Crear una nueva instancia del modelo Odontograma
+        $odontograma = new Odontograma();
+    
+        // Asignar los valores a los atributos del modelo
+        // $odontograma->piezasPadecientes = $this->piezasPadecientes;
+        $odontograma->cariado = $this->cariado;
+        $odontograma->obturado = $this->obturado;
+        $odontograma->perdida = $this->perdida;
+        $odontograma->extraccion = $this->extraccion;
+        $odontograma->sano = $this->sano;
+        $odontograma->observacion = $this->observacion;
+        $odontograma->fk_idCliente = $this->fk_idCliente;
+        $odontograma->numeroOdontograma = $this->numeroOdontograma;
+        $odontograma->lugarTitular = $this->lugarTitular;
+        $odontograma->localidad = $this->localidad;
+        $odontograma->domicilio = $this->domicilio;
+        $odontograma->fechaNac = $this->fechaNac;
+        $odontograma->edad = $this->edad;
+        $odontograma->parentesco = $this->parentesco;
+        $odontograma->grupoFamiliar = $this->grupoFamiliar;
+        $odontograma->titular = $this->titular;
+        $odontograma->plan = $this->plan;
+        $odontograma->afiliado = $this->afiliado;
+        $odontograma->anio = $this->anio;
+        $odontograma->mes = $this->mes;
+        $odontograma->codigo = $this->codigo;
+        $odontograma->obraSocial = $this->obraSocial;
+        $odontograma->dientes = json_encode($datosDientes); // Se utiliza json_encode para convertir el array $datosDientes en formato JSON
+    
+        // Guardar el nuevo registro en la base de datos
+        $odontograma->save();
+    
+        // Opcional: Puedes retornar el modelo de Odontograma creado si lo necesitas
+        return $odontograma;
+    }
+
+
+
+//     public function guardar($datosDientes)
+// {
+//     // Actualizar o crear el registro en la base de datos
+//     $this->updateOrCreate(
+//         ['idOdontograma' => $this->idOdontograma],
+//         [
+//             'piezasPadecientes' => $this->piezasPadecientes,
+//             'cariado' => $this->cariado,
+//             'obturado' => $this->obturado,
+//             'perdida' => $this->perdida,
+//             'extraccion' => $this->extraccion,
+//             'sano' => $this->sano,
+//             'observacion' => $this->observacion,
+//             'fk_idCliente' => $this->fk_idCliente,
+//             'numeroOdontograma' => $this->numeroOdontograma,
+//             'lugarTitular' => $this->lugarTitular,
+//             'localidad' => $this->localidad,
+//             'domicilio' => $this->domicilio,
+//             'fechaNac' => $this->fechaNac,
+//             'edad' => $this->edad,
+//             'parentesco' => $this->parentesco,
+//             'grupoFamiliar' => $this->grupoFamiliar,
+//             'titular' => $this->titular,
+//             'plan' => $this->plan,
+//             'afiliado' => $this->afiliado,
+//             'anio' => $this->anio,
+//             'mes' => $this->mes,
+//             'codigo' => $this->codigo,
+//             'obraSocial' => $this->obraSocial,
+//             'dientes' => json_encode($datosDientes),
+//         ]
+//     );
+// }
 
 
     

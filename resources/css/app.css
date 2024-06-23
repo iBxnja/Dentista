@@ -23,8 +23,12 @@ html {
 #principio,
 #login,
 #register{
-  background-image: url(../../public/imagenes/inicio.png);
+  background-image: url(../../public/imagenes/inicio.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#formFilter{
+  backdrop-filter: blur(15px);
 }

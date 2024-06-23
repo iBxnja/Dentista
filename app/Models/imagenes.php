@@ -44,18 +44,35 @@ class imagenes extends Model
 
     public function guardar()
     {
-        // Utiliza findOrNew para encontrar o crear una nueva instancia
-        $foto = imagenes::findOrNew($this->idImagen);
-
-        // Asigna valores a la instancia
+        $foto = new imagenes(); // Crear una nueva instancia del modelo Nota
+    
+        // Asignar los valores a los atributos del modelo
         $foto->imagen = $this->imagen;
         $foto->titulo = $this->titulo;
         $foto->texto = $this->texto;
         $foto->fk_idCliente = $this->fk_idCliente;
-
-        // Guarda la imagen en la base de datos
+    
+        // Guardar el nuevo registro en la base de datos
         $foto->save();
+    
+        // Opcional: Puedes retornar el modelo de Nota creado si lo necesitas
+        return $foto;
     }
+
+    // public function guardar()
+    // {
+    //     // Utiliza findOrNew para encontrar o crear una nueva instancia
+    //     $foto = imagenes::findOrNew($this->idImagen);
+
+    //     // Asigna valores a la instancia
+    //     $foto->imagen = $this->imagen;
+    //     $foto->titulo = $this->titulo;
+    //     $foto->texto = $this->texto;
+    //     $foto->fk_idCliente = $this->fk_idCliente;
+
+    //     // Guarda la imagen en la base de datos
+    //     $foto->save();
+    // }
 
     public function eliminar()
     {

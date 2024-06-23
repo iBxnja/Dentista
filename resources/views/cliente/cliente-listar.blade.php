@@ -60,7 +60,7 @@
                         <tbody class="w-full flex items-center justify-center flex-col mt-">
                             @foreach ($aClientes as $clientes)
                             <tr class="shadow-md shadow-neutral-500 w-full flex cel:flex-col cel:h-full items-center justify-center text-center bg-teal-200 my-3 h-20">
-                                <td class="cel:w-full cel:py-3 w-1/12 cel:text-sm text-lg font-normal bg-teal-300 h-full grid place-items-center"><img src="{{ asset('imagenes/cliente.png') }}" alt="Cliente" class="cel:w-10 w-10"></td>
+                                <td class="cel:w-full cel:py-3 w-1/12 cel:text-sm text-lg font-normal bg-teal-300 h-full grid place-items-center"><i class="fa-solid fa-circle-user text-5xl text-white"></i></td>
                                 <td class="cel:w-full w-3/12 cel:text-sm text-lg font-bold hidden cel:block cel:mt-2">Nombre:</td>
                                 <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal ">{{$clientes->nombre}}</td>
                                 <td class="cel:w-full w-3/12 cel:text-sm text-lg font-bold hidden cel:block cel:mt-3">Apellido:</td>
@@ -71,7 +71,7 @@
                                 <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal ">{{$clientes->edad}}</td>
                                 <td class="cel:w-full w-2/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
                                     <a href="{{ isset($clientes->idCliente) ? route('cliente.eliminar', ['id' => $clientes->idCliente]) : '' }}" class="w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl" name="btnEliminarCliente">
-                                        <img src="{{ asset('imagenes/eliminar.png') }}" alt="" class="w-5">
+                                        <i class="fa-solid fa-trash text-black text-xl"></i>
                                     </a>
                                 </td>
                             </tr>

@@ -40,34 +40,69 @@
                 <a href="#arrancar" class="cel:ml-0 md:ml-0 ml-12 mt-5 grid place-items-center w-48 h-14 bg-gradient-to-r from-emerald-500 to-teal-500 border-2 border-teal-700 text-white rounded-full  lg:hover:text-lg  xl:hover:text-lg  2xl:hover:text-lg duration-100 ease-in-out decoration-transparent">Hora de trabajar</a>
             </div>
             <div class="cel:w-full w-5/12 grid place-items-center">
-                <img src="{{ asset('imagenes/dentista-logo.png') }}" alt="Dentista Logo" class="cel:w-48 w-96">
+                <img src="{{ asset('imagenes/dentista.png') }}" alt="Dentista Logo" class="cel:hidden w-full">
             </div>
         </div>
     </section>
-    <section id="arrancar" class="w-full h-full flex items-center flex-wrap justify-around text-white pb-10">
-        <a href="{{route('cliente-listar')}}" class="relative decoration-transparent lg:hover:bg-teal-500 xl:hover:bg-teal-500 2xl:hover:bg-teal-500 ease-in-out duration-100 border-4 border-teal-600 bg-teal-400 mt-20 ml-10 mr-10 w-80 h-48 text-xl rounded-xl flex items-center justify-center flex-col cel:w-48 cel:ml-5 cel:mr-5 md:w-72">
-            <img src="{{ asset('imagenes/personal.png') }}" alt="" class="w-32">
-            <span class="absolute bottom-3 tracking-widest mt-2 text-white text-2xl">Cliente</span>
-        </a>
-        <a href="{{route('notas-listar')}}" class="relative decoration-transparent lg:hover:bg-teal-500 xl:hover:bg-teal-500 2xl:hover:bg-teal-500 ease-in-out duration-100 border-4 border-teal-600 bg-teal-400 mt-20 ml-10 mr-10 w-80 h-48 text-xl rounded-xl flex items-center justify-center flex-col cel:w-48 cel:ml-5 cel:mr-5 md:w-72">
-            <img src="{{ asset('imagenes/notas.png') }}" alt="" class="w-28 mb-2"> 
-            <span class="absolute bottom-3 tracking-widest mt-2 text-white text-2xl">Notas</span>       
-        </a>
-        <a href="{{route('imagenes')}}" class="relative decoration-transparent lg:hover:bg-teal-500 xl:hover:bg-teal-500 2xl:hover:bg-teal-500 ease-in-out duration-100 border-4 border-teal-600 bg-teal-400 mt-20 ml-10 mr-10 w-80 h-48 text-xl rounded-xl flex items-center justify-center flex-col cel:w-48 cel:ml-5 cel:mr-5 md:w-72">
-            <img src="{{ asset('imagenes/imagenes.png') }}" alt="" class="w-28">
-            <span class="absolute bottom-3 tracking-widest mt-2 text-white text-2xl">Imagenes</span>
-          </a>
-        <a href="{{route('cita-listar')}}" class="relative decoration-transparent lg:hover:bg-teal-500 xl:hover:bg-teal-500 2xl:hover:bg-teal-500 ease-in-out duration-100 border-4 border-teal-600 bg-teal-400 mt-20 ml-10 mr-10 w-80 h-48 text-xl rounded-xl flex items-center justify-center flex-col cel:w-48 cel:ml-5 cel:mr-5 md:w-72">
-            <img src="{{ asset('imagenes/calendario.png') }}" alt="" class="w-28 mb-4">
-            <span class="absolute bottom-3 tracking-widest mt-2 text-white text-2xl">Citas</span>
-        </a>
-        <a href="{{route('odontograma-listar')}}" class="relative decoration-transparent lg:hover:bg-teal-500 xl:hover:bg-teal-500 2xl:hover:bg-teal-500 ease-in-out duration-100 border-4 border-teal-600 bg-teal-400 mt-20 ml-10 mr-10 w-80 h-48 text-xl rounded-xl flex items-center justify-center flex-col cel:w-48 cel:ml-5 cel:mr-5 md:w-72">
-            <img src="{{ asset('imagenes/diente.png') }}" alt="" class="w-20 mb-4 ">
-            <span class="absolute bottom-3 tracking-widest mt-2 text-white text-2xl">Odontograma</span>
-        </a>
-        <a href="{{route('informe-listar')}}" class="relative decoration-transparent lg:hover:bg-teal-500 xl:hover:bg-teal-500 2xl:hover:bg-teal-500 ease-in-out duration-100 border-4 border-teal-600 bg-teal-400 mt-20 ml-10 mr-10 w-80 h-48 text-xl rounded-xl flex items-center justify-center flex-col cel:w-48 cel:ml-5 cel:mr-5 md:w-72">
-            <img src="{{ asset('imagenes/informe.png') }}" alt="" class="w-28 mb-4">
-            <span class="absolute bottom-3 tracking-widest mt-2 text-white text-2xl">Informe</span>
-        </a>
+    <section id="arrancar" class="w-full h-full flex items-center flex-wrap cel:justify-center justify-around text-white py-10">
+        <div class="w-full h-full flex items-center justify-around cel:flex-col">
+            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:my-20">
+                <div class="">
+                    <i class="fa-solid fa-user-group text-6xl"></i>
+                </div>
+                <h2 class="text-xl">Agregar un nuevo cliente</h2>
+                <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
+                <a href="{{route('cliente-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de clientes <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
+            </div>
+            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
+                <div class="">
+                    <i class="fa-solid fa-note-sticky text-6xl"></i>
+                </div>
+                <h2 class="text-xl">Agregar una nueva nota</h2>
+                <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
+                <a href="{{route('notas-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de notas <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
+            </div>
+            
+        </div>
+        <div class="w-full cel:flex-col h-full flex items-center cel:justify-center justify-around cel:my-0 my-28">
+            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
+                <div class="">
+                    <i class="fa-solid fa-image text-6xl"></i>
+                </div>
+                <h2 class="text-xl">Agregar una nueva imagen</h2>
+                <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
+                <a href="{{route('imagenes')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de imagenes <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
+            </div>
+            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
+                <div class="">
+                    <i class="fa-solid fa-calendar-days text-6xl"></i>
+                </div>
+                <h2 class="text-xl">Agregar una nueva cita</h2>
+                <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
+                <a href="{{route('cita-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de citas <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
+            </div>
+            
+        </div>
+        <div class="w-full h-full cel:flex-col flex items-center justify-around cel:justify-center">
+            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
+                <div class="">
+                    <i class="fa-solid fa-address-card text-6xl"></i>
+                </div>
+                <h2 class="text-xl">Agregar un nuevo odontograma</h2>
+                <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
+                <a href="{{route('odontograma-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de odontograma <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
+            </div>
+            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
+                <div class="">
+                    <i class="fa-solid fa-box text-6xl"></i>
+                </div>
+                <h2 class="text-xl">Agregar un nuevo informe</h2>
+                <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
+                <a href="{{route('informe-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de informe <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
+            </div>
+            
+        </div>
+
     </section>
 @endsection
+

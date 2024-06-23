@@ -69,21 +69,21 @@
                         class="shadow-md shadow-neutral-500 w-full flex cel:flex-col cel:h-full items-center justify-center text-center bg-teal-200 my-3 h-20">
                         <td
                             class="cel:w-full cel:py-3 w-1/12 cel:text-sm text-lg font-normal bg-teal-300 h-full grid place-items-center">
-                            <img src="{{ asset('imagenes/cliente.png') }}" alt="Cliente" class="cel:w-10 w-10"></td>
+                            <i class="fa-solid fa-circle-user text-5xl text-white"></i></td>
                         <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal "> {{ $odontograma->cliente->nombre }} {{ $odontograma->cliente->apellido }}</td>
                         <td class="cel:w-full w-2/12 cel:text-sm text-lg font-normal ">{{$odontograma->numeroOdontograma}}</td>
                         <td class="cel:w-full w-4/12 cel:text-sm text-lg font-normal ">{{$odontograma->titular}}</td>
                         {{-- <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal ">{{$odontograma->piezasPadecientes}}</td> --}}
                         <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
                             <a href="{{ isset($odontograma->idOdontograma) ? route('odontograma.eliminar', ['id' => $odontograma->idOdontograma]) : '' }}"
-                                class="w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl"
+                                class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl"
                                 name="btnEliminarCliente">
-                                <img src="{{ asset('imagenes/eliminar.png') }}" alt="" class="w-5">
+                                <i class="fa-solid fa-trash text-black text-xl"></i>
                             </a>
                         </td>
                         <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
-                            <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
-                                <img src="{{ asset('imagenes/ojo.png') }}" alt="" class="w-5">
+                            <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
+                                <i class="fa-solid fa-eye text-black text-xl"></i>
                             </a>
                         </td>
                     </tr>

@@ -55,8 +55,8 @@
               <span class="font-thin ml-2">Numero de sesión: {{ $nota->numeroSesion }}</span>
             </div>
             <div class="w-full h-14 flex items-center justify-start">
-              <a href="/inicio/notas-mostrar/{{ $nota->idNota }}" class="ml-2"><img src="{{ asset('imagenes/ojo.png') }}" class="w-8"></a>
-              <a href="{{ route('notas.eliminar', ['id' => $nota->idNota]) }}" class="ml-8" ><img src="{{ asset('imagenes/eliminar.png') }}" class="w-5"></a>
+              <a href="/inicio/notas-mostrar/{{ $nota->idNota }}" class="ml-2">   <i class="fa-solid fa-eye text-black text-xl"></i></a>
+              <a href="{{ route('notas.eliminar', ['id' => $nota->idNota]) }}" class="ml-8" ><i class="fa-solid fa-trash text-black text-xl"></i></a>
             </div>
           </div>
       @endforeach

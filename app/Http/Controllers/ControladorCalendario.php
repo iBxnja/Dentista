@@ -26,6 +26,7 @@ class ControladorCalendario extends Controller
 
     public function index()
 {
+    
     return view('citas.cita-listar');
 }
 

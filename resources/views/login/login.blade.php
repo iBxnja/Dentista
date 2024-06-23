@@ -35,7 +35,7 @@
                 cel:w-11/12
                 w-2/4 h-4/5 flex items-center justify-center flex-col" >
                     @csrf
-                    <h2 class="text-5xl font-bold text-white mb-5
+                    <h2 class="text-5xl font-bold text-teal-500 mb-5
                     cel:text-3xl
                     md:text-4xl
                     ">Login</h2>
@@ -43,10 +43,10 @@
                     cel:m-0
                     md:m-3
                     m-5 flex flex-col items-center justify-center w-5/6">
-                        <label for="email" class="text-xl cel:text-base text-white">Email</label>
+                        <label for="email" class="text-xl cel:text-base text-teal-500">Email</label>
                         <input type="email" class="
                         cel:h-8
-                        text-center border-2 border-gray-200 rounded-md bg-white w-full
+                        text-center border-2 border-gray-300 rounded-md bg-white w-full
                          placeholder-gray-900 p-2 my-2 focus:bg-white text-xs" placeholder="Email"
                         id="email" name="email">
                     </div>
@@ -54,10 +54,10 @@
                     cel:m-0
                     md:m-3
                     m-5 flex flex-col items-center justify-center w-5/6">
-                        <label for="password" class="text-xl cel:text-base text-white">Contraseña</label>
+                        <label for="password" class="text-xl cel:text-base text-teal-500">Contraseña</label>
                         <input type="password" id="password" name="password" class="
                         cel:h-8
-                        text-center border-2 border-gray-200 rounded-md bg-white w-full
+                        text-center border-2 border-gray-300 rounded-md bg-white w-full
                          placeholder-gray-900 p-2 my-2 focus:bg-white text-xs" placeholder="Contraseña">
                     </div>
                     <button type="submit" class="
@@ -69,7 +69,7 @@
                     cel:m-0 text-center
                     md:mb-2
                     mb-5">
-                        <span class="text-sm">¿Todavia no tienes cuenta? </span><a href="/register/register" class="text-white cel:text-sm">Registrate aca.</a>
+                        <span class="text-sm">¿Todavia no tienes cuenta? </span><a href="/register/register" class="text-teal-500 cel:text-sm">Registrate aca.</a>
                     </div>
                 </form>
             </div>

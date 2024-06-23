@@ -43,21 +43,38 @@ class Cita extends Model
         return $lstRetorno;
     }
 
-
     public function guardar()
     {
-        $cita = Cita::updateOrCreate(
-            ['idCita' => $this->idCita],
-            [
-                'dia' => $this->dia,
-                'numero' => $this->numero,
-                'mes' => $this->mes,
-                'hora' => $this->hora,
-                'consulta' => $this->consulta,
-                'fk_idCliente' => $this->fk_idCliente,
-            ]
-        );
+        $cita = new Cita(); // Crear una nueva instancia del modelo Nota
+    
+        // Asignar los valores a los atributos del modelo
+        $cita->dia = $this->dia;
+        $cita->numero = $this->numero;
+        $cita->mes = $this->mes;
+        $cita->hora = $this->hora;
+        $cita->consulta = $this->consulta;
+        $cita->fk_idCliente = $this->fk_idCliente;
+    
+        // Guardar el nuevo registro en la base de datos
+        $cita->save();
+    
+        // Opcional: Puedes retornar el modelo de Nota creado si lo necesitas
+        return $cita;
     }
+    // public function guardar()
+    // {
+    //     $cita = Cita::updateOrCreate(
+    //         ['idCita' => $this->idCita],
+    //         [
+    //             'dia' => $this->dia,
+    //             'numero' => $this->numero,
+    //             'mes' => $this->mes,
+    //             'hora' => $this->hora,
+    //             'consulta' => $this->consulta,
+    //             'fk_idCliente' => $this->fk_idCliente,
+    //         ]
+    //     );
+    // }
 
 
     public function cliente()
