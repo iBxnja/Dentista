@@ -15,7 +15,7 @@ dd($odontograma, $datosJson);
 
         <div class="flex cel:flex-col bg-teal-300 shadow-md shadow-neutral-500 items-center justify-center w-11/12 h-full py-2">
             <div class="w-full h-96 grid place-items-center">
-                <img src="{{ asset('imagenes/cliente.png') }}" alt="Cliente" class="cel:w-10/12 w-6/12">
+                <img src="{{ asset('imagenes/diente2.png') }}" alt="Cliente" class="cel:w-10/12 w-6/12">
             </div>
             <div class="w-3/4 cel:text-center cel:w-full h-full cel:flex-col flex items-start justify-center cel:items-center">
               <div class="cel:mb-5 w-2/4 cel:w-11/12 h-full flex items-start justify-center flex-col cel:items-center">

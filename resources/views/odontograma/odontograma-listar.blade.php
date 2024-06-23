@@ -75,15 +75,15 @@
                         <td class="cel:w-full w-4/12 cel:text-sm text-lg font-normal ">{{$odontograma->titular}}</td>
                         {{-- <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal ">{{$odontograma->piezasPadecientes}}</td> --}}
                         <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
+                            <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
+                                <i class="fa-solid fa-eye text-black text-xl"></i>
+                            </a>
+                        </td>
+                        <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
                             <a href="{{ isset($odontograma->idOdontograma) ? route('odontograma.eliminar', ['id' => $odontograma->idOdontograma]) : '' }}"
                                 class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl"
                                 name="btnEliminarCliente">
                                 <i class="fa-solid fa-trash text-black text-xl"></i>
-                            </a>
-                        </td>
-                        <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
-                            <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
-                                <i class="fa-solid fa-eye text-black text-xl"></i>
                             </a>
                         </td>
                     </tr>

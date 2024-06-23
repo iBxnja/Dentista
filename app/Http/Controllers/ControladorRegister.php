@@ -45,13 +45,11 @@ class ControladorRegister extends Controller
                 'email' => $validatedData['email'],
                 'password' => $validatedData['password'],
             ]);
-
             // Almacenar el ID del usuario en la sesión
             session()->put('usuario_id', $user->id);
             // dd(session('usuario_id'));
             // Login del usuario
             auth()->login($user);
-
             // Mensaje de éxito
             Log::info('Registro exitoso. Usuario logueado.', ['user' => $user]);
             $bienvenido = 'Bienvenido, te has registrado correctamente';
