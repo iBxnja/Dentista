@@ -13,116 +13,82 @@ class Odontograma extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idOdontograma', 'cariado', 'obturado', 'perdida', 'extraccion', 'sano', 'observacion', 'fk_idCliente', 'dientes', 'numeroOdontograma',
-        'obraSocial', 'codigo', 'mes', 'anio', 'afiliado', 'plan', 'titular', 'grupoFamiliar','parentesco',
-        'edad', 'fechaNac', 'domicilio', 'localidad','lugarTitular',
+        'idOdontograma', 'dientes', 'obraSocial', 'codigo', 'fk_idCliente', 'afiliado', 'mes', 'plan',
+        'anio','edad','titular','fechaNac','domicilio','parentesco','grupoFamiliar','localidad',
+        'lugarTitular','odontologo','numeroOdontograma','matricula',
     ];
 
+    protected $casts = [
+        'dientes' => 'array', // Esto indica a Laravel que el campo 'dientes' es de tipo array
+    ];
     protected $hidden = [];
 
     public function cargarDesdeRequest($request){
         $this->idOdontograma = $request->input('id', $this->idOdontograma);
-        $this->piezasPadecientes = $request->input('piezasPadecientes');
-        $this->infantil = $request->input('infantil');
-        $this->adulto = $request->input('adulto');
-        $this->mayor = $request->input('mayor');
-        $this->doctora = $request->input('doctora');
-        $this->cariado = $request->input('cariado');
-        $this->obturado = $request->input('obturado');
-        $this->perdida = $request->input('perdida');
-        $this->extraccion = $request->input('extraccion');
-        $this->sano = $request->input('sano');
-        $this->observacion = $request->input('observacion');
-        $this->numeroOdontograma = $request->input('numeroOdontograma');
-        $this->fk_idCliente = $request->input('fk_idCliente');
+
         $this->obraSocial = $request->input('obraSocial');
         $this->codigo = $request->input('codigo');
-        $this->mes = $request->input('mes');
-        $this->anio = $request->input('anio');
+        $this->fk_idCliente = $request->input('fk_idCliente');
         $this->afiliado = $request->input('afiliado');
+        $this->mes = $request->input('mes');
         $this->plan = $request->input('plan');
-        $this->titular = $request->input('titular');
-        $this->grupoFamiliar = $request->input('grupoFamiliar');
-        $this->parentesco = $request->input('parentesco');
+        $this->anio = $request->input('anio');
         $this->edad = $request->input('edad');
+        $this->titular = $request->input('titular');
         $this->fechaNac = $request->input('fechaNac');
         $this->domicilio = $request->input('domicilio');
+        $this->parentesco = $request->input('parentesco');
+        $this->grupoFamiliar = $request->input('grupoFamiliar');
         $this->localidad = $request->input('localidad');
         $this->lugarTitular = $request->input('lugarTitular');
+        $this->odontologo = $request->input('odontologo');
+        $this->numeroOdontograma = $request->input('numeroOdontograma');
+        $this->matricula = $request->input('matricula');
     }
       
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'fk_idCliente');
     }
-    public function obtenerTodos()
-    {
-        $sql = "SELECT
-                  idOdontograma,
-                  lugarTitular,
-                  localidad,
-                  domicilio,
-                  fechaNac,
-                  edad,
-                  parentesco,
-                  grupoFamiliar,
-                  titular,
-                  plan,
-                  afiliado,
-                  anio,
-                  mes,
-                  codigo,
-                  obraSocial,
-                  cariado,
-                  obturado,
-                  perdida,
-                  extraccion,
-                  sano,
-                  observacion,
-                  fk_idCliente,
-                  numeroOdontograma
-                FROM odontograma ORDER BY idOdontograma";
-        $lstRetorno = DB::select($sql);
-        return $lstRetorno;
-    }
-    
 
-    public function guardar($datosDientes)
+    public function obtenerTodos()
+{
+    $sql = "SELECT
+              idOdontograma,
+              dientes,
+              obraSocial,
+              codigo,
+              fk_idCliente,
+              afiliado,
+              mes,
+              plan,
+              anio,
+              edad,
+              titular,
+              fechaNac,
+              domicilio,
+              parentesco,
+              grupoFamiliar,
+              localidad,
+              lugarTitular,
+              odontologo,
+              numeroOdontograma,
+              matricula
+            FROM odontograma ORDER BY idOdontograma";
+    $lstRetorno = DB::select($sql);
+    return $lstRetorno;
+}
+
+    
+    public function guardar($datos)
     {
-        // Crear una nueva instancia del modelo Odontograma
-        $odontograma = new Odontograma();
-    
-        // Asignar los valores a los atributos del modelo
-        // $odontograma->piezasPadecientes = $this->piezasPadecientes;
-        $odontograma->cariado = $this->cariado;
-        $odontograma->obturado = $this->obturado;
-        $odontograma->perdida = $this->perdida;
-        $odontograma->extraccion = $this->extraccion;
-        $odontograma->sano = $this->sano;
-        $odontograma->observacion = $this->observacion;
-        $odontograma->fk_idCliente = $this->fk_idCliente;
-        $odontograma->numeroOdontograma = $this->numeroOdontograma;
-        $odontograma->lugarTitular = $this->lugarTitular;
-        $odontograma->localidad = $this->localidad;
-        $odontograma->domicilio = $this->domicilio;
-        $odontograma->fechaNac = $this->fechaNac;
-        $odontograma->edad = $this->edad;
-        $odontograma->parentesco = $this->parentesco;
-        $odontograma->grupoFamiliar = $this->grupoFamiliar;
-        $odontograma->titular = $this->titular;
-        $odontograma->plan = $this->plan;
-        $odontograma->afiliado = $this->afiliado;
-        $odontograma->anio = $this->anio;
-        $odontograma->mes = $this->mes;
-        $odontograma->codigo = $this->codigo;
-        $odontograma->obraSocial = $this->obraSocial;
-        $odontograma->dientes = json_encode($datosDientes); // Se utiliza json_encode para convertir el array $datosDientes en formato JSON
-    
-        // Guardar el nuevo registro en la base de datos
-        $odontograma->save();
-    
-        // Opcional: Puedes retornar el modelo de Odontograma creado si lo necesitas
-        return $odontograma;
+        // Asignar los valores al modelo desde los datos recibidos
+        $this->fill($datos);
+
+        // Guardar el odontograma en la base de datos
+        $this->save();
+
+        return $this;
     }
 
 

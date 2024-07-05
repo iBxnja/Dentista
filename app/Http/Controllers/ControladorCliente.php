@@ -77,6 +77,16 @@ class ControladorCliente extends Controller
             return view('cita.cita-listar', compact('error'));  
         }
     }
+
+    public function mostrarCliente($id){
+        $cliente = Cliente::find($id);
+        $clientes = new Cliente();
+        $aClientes = $clientes->obtenerTodos();
+        if (!$cliente) {
+            abort(404); // Devuelve un error 404 si la nota no existe
+        }
+        return view('cliente.cliente-mostrar', compact('cliente', 'aClientes'));
+    }
     
     
 }

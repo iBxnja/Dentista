@@ -20,8 +20,10 @@ class ControladorWebInforme extends Controller
         $totalImagenes = Imagenes::count();
         $totalNotas = Nota::count();
         $totalCalendario = Calendario::count();
-        $totalOdontograma = Odontograma::count();
+        // $totalOdontograma = Odontograma::count();
 
         return view('informe.informe-listar', compact('totalClientes', 'totalImagenes', 'totalNotas', 'aClientes', 'totalCalendario', 'totalOdontograma'));
     }
+
+
 }

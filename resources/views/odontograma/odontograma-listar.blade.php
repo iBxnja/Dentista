@@ -70,7 +70,8 @@
                         <td
                             class="cel:w-full cel:py-3 w-1/12 cel:text-sm text-lg font-normal bg-teal-300 h-full grid place-items-center">
                             <i class="fa-solid fa-circle-user text-5xl text-white"></i></td>
-                        <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal "> {{ $odontograma->cliente->nombre }} {{ $odontograma->cliente->apellido }}</td>
+                            {{-- <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal "> {{ $odontograma->cliente->nombre }} {{ $odontograma->cliente->apellido }}</td> --}}
+                            <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal ">Cliente</td>
                         <td class="cel:w-full w-2/12 cel:text-sm text-lg font-normal ">{{$odontograma->numeroOdontograma}}</td>
                         <td class="cel:w-full w-4/12 cel:text-sm text-lg font-normal ">{{$odontograma->titular}}</td>
                         {{-- <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal ">{{$odontograma->piezasPadecientes}}</td> --}}

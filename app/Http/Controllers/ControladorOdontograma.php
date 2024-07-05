@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Odontograma;
 use App\Models\Cliente;
+use Exception;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,10 @@ class ControladorOdontograma extends Controller
         return view('odontograma.odontograma-listar', compact('aOdontograma', 'buscarpor'));
     }
     
+    public function mostrar(){
+
+        return view('odontograma.odontograma-nuevo');
+    }
 
     public function enviarNombreApellido(){
         $cliente = new Cliente();
@@ -32,67 +37,54 @@ class ControladorOdontograma extends Controller
         return view('odontograma.odontograma-nuevo', compact('aCliente','aOdontograma'));
     }
     
+
+
+
     public function guardar(Request $request)
-{
-    // dd($request->all());
-    $odontograma = new Odontograma();
-    $odontograma->cargarDesdeRequest($request);
-    // dd($odontograma);
-    if (empty($odontograma->obraSocial)) {
-        $error = "¡Parece que ocurrió un error!.";
-        return view('inicio.inicio', compact('error'));
-    } else {
-        // Obtener el JSON desde la solicitud
-        $odontogramaJSON = $request->input('odontogramaJSON');
-
-        // Convertir el JSON a un array
-        $odontogramaArray = json_decode($odontogramaJSON, true);
-        // dd($odontogramaArray);
-        // Guardar los datos en la base de datos
-        $odontograma->guardar($odontogramaArray);
-
-        // Almacenar información del odontograma en la sesión
-        session(['odontogramaGuardado' => [
-            'id' => $odontograma->idOdontograma,
-            'cariado' => $odontograma->cariado,
-            'obturado' => $odontograma->obturado,
-            'perdida' => $odontograma->perdida,
-            'extraccion' => $odontograma->extraccion,
-            'sano' => $odontograma->sano,
-            'observacion' => $odontograma->observacion,
-            'numeroOdontograma' => $odontograma->numeroOdontograma,
-            'lugarTitular' => $odontograma->lugarTitular,
-            'localidad' => $odontograma->localidad,
-            'domicilio' => $odontograma->domicilio,
-            'fechaNac' => $odontograma->fechaNac,
-            'edad' => $odontograma->edad,
-            'parentesco' => $odontograma->parentesco,
-            'grupoFamiliar' => $odontograma->grupoFamiliar,
-            'titular' => $odontograma->titular,
-            'plan' => $odontograma->plan,
-            'afiliado' => $odontograma->afiliado,
-            'anio' => $odontograma->anio,
-            'mes' => $odontograma->mes,
-            'codigo' => $odontograma->codigo,
-            'obraSocial' => $odontograma->obraSocial,
-            'odontogramaJSON' => $odontogramaJSON,
-        ]]);
-        // $mensajeSession = 'session';
-        // dd(session('odontogramaGuardado'), 'mensajeSession');
-
-        // Mensaje de éxito
-        $mensaje = "¡Perfecto, se agregó correctamente el odontograma!";
-
-        // Redirigir a la vista con el mensaje
+    {
+        // Obtener todos los datos del formulario
+        $datosEstaticos = $request->only([
+            'obraSocial', 'codigo', 'fk_idCliente', 'afiliado', 'mes', 'plan',
+            'anio', 'edad', 'titular', 'fechaNac', 'domicilio', 'parentesco',
+            'grupoFamiliar', 'localidad', 'lugarTitular', 'odontologo',
+            'numeroOdontograma', 'matricula',
+        ]);
+    
+        // Definir el rango de índices para los nombres de los campos de los dientes
+        $inicio = 11;
+        $fin = 60; // Ajusta el número final según tu necesidad
+    
+        $datosDientes = [];
+    
+        // Generar dinámicamente los nombres de los campos de los dientes y añadirlos al array
+        for ($i = $inicio; $i <= $fin; $i++) {
+            $datosDientes["estado$i"] = $request->input("estado$i");
+            $datosDientes["input$i"] = $request->input("input$i");
+            $datosDientes["input${i}_1"] = $request->input("input${i}_1");
+            $datosDientes["input${i}_2"] = $request->input("input${i}_2");
+            $datosDientes["input${i}_3"] = $request->input("input${i}_3");
+            $datosDientes["input${i}_4"] = $request->input("input${i}_4");
+        }
+    
+        // Convertir los datos de los dientes a JSON
+        $datosEstaticos['dientes'] = json_encode($datosDientes);
+    
+        // Crear una nueva instancia del modelo Odontograma
+        $odontograma = new Odontograma();
+    
+        // Llamar al método guardar del modelo Odontograma
+        $odontograma->guardar($datosEstaticos);
+    
+        $mensaje = "Datos guardados correctamente";
+    
+        // Redirigir o devolver alguna respuesta según sea necesario
         return view('inicio.inicio', compact('mensaje'));
     }
-}
 
-    
-    
-    
 
-    
+
+
+
     
 
     public function eliminar($id) {   
@@ -146,7 +138,7 @@ class ControladorOdontograma extends Controller
     $odontograma = Odontograma::with('cliente')->find($id);
 
     if (!$odontograma) {
-        abort(404); // Devuelve un error 404 si el odontograma no existe
+        abort(404);
     }
 
     $datosJson = json_decode($odontograma->dientes, true);

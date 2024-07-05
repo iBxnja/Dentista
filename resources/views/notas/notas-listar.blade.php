@@ -41,9 +41,32 @@
     
     
     
-    <div class="w-11/12 h-full flex items-center justify-around mt-3 flex-wrap cel:justify-center cel:flex-col">
+    <div class="w-11/12 h-full grid grid-cols-2 mt-3 cel:justify-center cel:flex-col">
       <!--foreach-->
       @foreach ($aNota as $nota)
+      <div class="border-l-8 border-l-teal-600 w-11/12 h-48 bg-white flex flex-col items-start justify-center shadow-md shadow-neutral-500 rounded-xl">
+        <div class="flex items-start justify-center text-teal-500 font-bold">
+          <span class="ml-8 mr-2"> <i class="fa-solid fa-note-sticky text-lg"></i></span>
+          <span class="ml-">Cliente: {{ $nota->cliente->nombre }} {{ $nota->cliente->apellido }}</span>
+          <span class="mx-2">|</span>
+          <span class="">Numero de sesión: {{ $nota->numeroSesion }}</span>
+        </div>
+        <div class="w-full h-8 overflow-hidden">
+          <h2 class="text-2xl ml-8 uppercase font-bold">{{ $nota->titulo }}</h2>
+        </div>
+        <div class="ml-8 w-3/12 h-6 bg-teal-200 grid mt-2 place-items-center overflow-hidden rounded-lg">
+          <span class="uppercase text-teal-500 font-bold ">PENDIENTE</span>
+        </div>
+        <div class="ml-8 mt-3 w-3/12 flex gap-5 items-center justify-start">
+          <a href="{{ route('notas.eliminar', ['id' => $nota->idNota]) }}" class="cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full grid place-items-center cel:text-base text-3xl" name="btnEliminarCliente">
+              <i class="fa-solid fa-trash text-teal-500 text-xl"></i>
+          </a>
+          <a href="/inicio/notas-mostrar/{{ $nota->idNota }}" class="decoration-transparent cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full grid place-items-center cel:text-base text-3xl" name="btnEliminarCliente">
+              <i class="fa-solid fa-eye text-teal-500 text-xl"></i>
+          </a>
+      </div>
+      </div>
+      {{-- @foreach ($aNota as $nota)
           <div class="w-96 cel:w-full h-56 mt-4 mb-4 bg-neutral-100 text-black border-2 border-neutral-600 shadow-md shadow-neutral-500 flex items-center justify-center flex-col">
             <div class="w-full h-12  overflow-hidden">
               <h2 class="text-base font-normal mt-2 ml-2">{{ $nota->cliente->nombre }} {{ $nota->cliente->apellido }}</h2>
@@ -59,6 +82,7 @@
               <a href="{{ route('notas.eliminar', ['id' => $nota->idNota]) }}" class="ml-8" ><i class="fa-solid fa-trash text-black text-xl"></i></a>
             </div>
           </div>
+      @endforeach --}}
       @endforeach
       <!--endforeach-->
   </div>
