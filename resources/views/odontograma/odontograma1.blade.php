@@ -1,8 +1,13 @@
+
 <div class="w-11/12 h-full mb-10 py-10 flex shadow-md shadow-neutral-400 items-center justify-center bg-white border-l-8 border-l-teal-500 border-r-4 border-r-teal-500">
     <div class="w-6/12 h-full flex items-start justify-center flex-col gap-8">
         <div class="ml-10 flex flex-col w-72">
-            <label for="">PACIENTE:</label>
-            <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" name="fk_idCliente" id="">
+            <label for="fk_idCliente">PACIENTE:</label>
+            <select class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" name="fk_idCliente" id="fk_idCliente">
+                @foreach ($aClientes as $cliente)
+                    <option value="{{ $cliente->idCliente }}">{{ $cliente->nombre }} {{ $cliente->apellido }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="ml-10 flex flex-col w-72">
             <label for="">MES:</label>

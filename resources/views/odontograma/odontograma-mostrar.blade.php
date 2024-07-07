@@ -75,7 +75,7 @@ dd($datosJson);
         <div class="w-6/12 h-full flex items-start justify-center flex-col gap-16">
             <div class="ml-10 flex flex-col w-72">
                 <label for="">PACIENTE:</label>
-                <input class="border-transparent border-b-2 border-b-teal-500 py-1 focus:outline-none text-neutral-500" disabled type="text" value="{{$odontograma->fk_idCliente}}" name="fk_idCliente" id="">
+                <input class="border-transparent border-b-2 border-b-teal-500 py-1 focus:outline-none text-neutral-500" disabled type="text" value="{{ $odontograma->cliente->nombre}} {{ $odontograma->cliente->apellido}}" name="fk_idCliente" id="">
             </div>
             <div class="ml-10 flex flex-col w-72">
                 <label for="">AFILIADO N°:</label>

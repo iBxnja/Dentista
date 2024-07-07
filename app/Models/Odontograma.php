@@ -45,10 +45,9 @@ class Odontograma extends Model
         $this->numeroOdontograma = $request->input('numeroOdontograma');
         $this->matricula = $request->input('matricula');
     }
-      
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class, 'fk_idCliente');
+        return $this->belongsTo(Cliente::class, 'fk_idCliente', 'idCliente');
     }
 
     public function obtenerTodos()
@@ -90,44 +89,6 @@ class Odontograma extends Model
 
         return $this;
     }
-
-
-
-//     public function guardar($datosDientes)
-// {
-//     // Actualizar o crear el registro en la base de datos
-//     $this->updateOrCreate(
-//         ['idOdontograma' => $this->idOdontograma],
-//         [
-//             'piezasPadecientes' => $this->piezasPadecientes,
-//             'cariado' => $this->cariado,
-//             'obturado' => $this->obturado,
-//             'perdida' => $this->perdida,
-//             'extraccion' => $this->extraccion,
-//             'sano' => $this->sano,
-//             'observacion' => $this->observacion,
-//             'fk_idCliente' => $this->fk_idCliente,
-//             'numeroOdontograma' => $this->numeroOdontograma,
-//             'lugarTitular' => $this->lugarTitular,
-//             'localidad' => $this->localidad,
-//             'domicilio' => $this->domicilio,
-//             'fechaNac' => $this->fechaNac,
-//             'edad' => $this->edad,
-//             'parentesco' => $this->parentesco,
-//             'grupoFamiliar' => $this->grupoFamiliar,
-//             'titular' => $this->titular,
-//             'plan' => $this->plan,
-//             'afiliado' => $this->afiliado,
-//             'anio' => $this->anio,
-//             'mes' => $this->mes,
-//             'codigo' => $this->codigo,
-//             'obraSocial' => $this->obraSocial,
-//             'dientes' => json_encode($datosDientes),
-//         ]
-//     );
-// }
-
-
     
     #--------------------------------------------------------------------------------------
     public function eliminar(){

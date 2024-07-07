@@ -1,3 +1,4 @@
+
 @extends('plantilla')
 @section('breadcrumb')
     <a href="/inicio" class="decoration-transparent">Inicio</a>
@@ -5,6 +6,7 @@
     <span class="ml-5">Nuevo odontograma</span>
 @endsection
 @section('contenido')
+{{-- @dump($aClientes) --}}
 <section class="w-full h-full flex items-center justify-center flex-col">
    <form id="miFormulario" method="post" class="w-full h-full flex items-center justify-center flex-col">
         @csrf

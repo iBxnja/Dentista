@@ -2,41 +2,36 @@
 
 namespace App\Http\Controllers;
 use App\Models\Odontograma;
-use App\Models\Cliente;
-use Exception;
+use App\Models\Cliente ; 
+use App\Models\imagenes;
+use App\Models\Nota;
+// use Exception;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class ControladorOdontograma extends Controller
 {
     public function index(Request $request)
-    {
-        $buscarpor = $request->get('buscarpor');
+{
+    $buscarpor = $request->get('buscarpor');
     
-        $odontograma = new Odontograma();
+    $aOdontograma = Odontograma::when($buscarpor, function ($query) use ($buscarpor) {
+        return $query->whereHas('cliente', function ($subquery) use ($buscarpor) {
+            $subquery->where('nombre', 'like', '%' . $buscarpor . '%');
+        });
+    })->with('cliente')->get(); // Cargar datos del cliente asociado
 
-        $aOdontograma = $odontograma->when($buscarpor, function ($query) use ($buscarpor) {
-            return $query->whereHas('cliente', function ($subquery) use ($buscarpor) {
-                $subquery->where('nombre', 'like', '%' . $buscarpor . '%');
-            });
-        })->with('cliente')->get(); // Cargar datos del cliente asociado
-    
-        return view('odontograma.odontograma-listar', compact('aOdontograma', 'buscarpor'));
-    }
+    // Pasar todas las variables necesarias a la vista
+    return view('odontograma.odontograma-listar', compact('aOdontograma', 'buscarpor'));
+}
+
     
     public function mostrar(){
-
-        return view('odontograma.odontograma-nuevo');
+        $clientes = new Cliente();
+        $aClientes = $clientes->obtenerTodos();
+        return view('odontograma.odontograma-nuevo', compact('aClientes'));
     }
 
-    public function enviarNombreApellido(){
-        $cliente = new Cliente();
-        $aCliente = $cliente->obtenerNombreApellido();
-        $odontograma = new Odontograma();
-        $aOdontograma = $odontograma->obtenerTodos();
-        return view('odontograma.odontograma-nuevo', compact('aCliente','aOdontograma'));
-    }
-    
 
 
 
@@ -145,27 +140,6 @@ class ControladorOdontograma extends Controller
 
     return view('odontograma.odontograma-mostrar', compact('odontograma', 'datosJson'));
 }
-
-
-
-
-
-
-    // public function json(Request $request) {
-    //     // Obtener los datos de los dientes
-    //     dd($request->all());
-    //     $odontograma = new Odontograma();
-    //     $odontograma->cargarDesdeRequest($request);
-
-    //         // Obtener el JSON desde la solicitud
-    //         $odontogramaJSON = $request->input('odontogramaJSON');
-
-    //         // Convertir el JSON a un array
-    //         $odontogramaArray = json_decode($odontogramaJSON, true);
-
-    //         // Guardar los datos en la base de datos
-    //         $odontograma->guardar($odontogramaArray);          
-    // }
 
 
 

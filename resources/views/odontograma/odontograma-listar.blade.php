@@ -52,16 +52,36 @@
         </div>
         <div class="w-11/12 h-full grid grid-cols-3 place-items-center items-center mb-10">
             @foreach ($aOdontograma as $odontograma)
-            <div class="shadow-md shadow-neutral-500 w-11/12 h-96 bg-gradient-to-tr from-teal-500 via-teal-300 to-teal-600 rounded-xl mt-4 flex items-start justify-center flex-col">
-                <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-teal-500 text-white">Documento N° {{$odontograma->numeroOdontograma}}</span>
+            <div class="relative shadow-md shadow-neutral-500 w-11/12 h-96 bg-gradient-to-tr from-teal-500 via-teal-300 to-teal-600 rounded-xl mt-4 flex items-start justify-center flex-col">
+                <span class="absolute top-5 right-5 w-auto px-3 py-2 border-2 border-teal-600 rounded-full bg-green-400  text-white">{{$odontograma->numeroOdontograma}}</span>
                 <h4 class="ml-3 mt-3 text-white">Nombre del cliente:</h4>
-                <h4 class="ml-3 font-light text-xl text-white">{{$odontograma->fk_idCliente}}</h4>
+                {{-- Verificar si la relación cliente está cargada --}}
+                @if ($odontograma->cliente)
+                    <h4 class="ml-3 font-light text-xl text-white">{{ $odontograma->cliente->nombre}} {{ $odontograma->cliente->apellido}}</h4>
+                @else
+                    <h4 class="ml-3 font-light text-xl text-white">Cliente no encontrado</h4>
+                @endif
+                <h6 class="ml-3 mt-3 text-white">Grupo familiar:</h6>
+                <h6 class="ml-3 font-light text-xl text-white">{{$odontograma->grupoFamiliar}}</h6>
                 <h6 class="ml-3 font-light mt-3 text-white">Datos del paciente:</h6>
                 <div class="flex items-center justify-Start">
                     <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-emerald-400 text-white">{{$odontograma->edad}} Años</span>
                     {{-- <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-teal-500 text-white">{{$odontograma->localidad}}</span> --}}
                     <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-emerald-500 text-white">Concordia</span>
                 </div>
+                <div class="ml-3 mt-4 flex gap-4 items-center justify-start">
+                    <a href="{{ isset($odontograma->idOdontograma) ? route('odontograma.eliminar', ['id' => $odontograma->idOdontograma]) : '' }}"
+                        class="decoration-transparent w-12 h-12 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl"
+                        name="btnEliminarCliente">
+                        <i class="fa-solid fa-trash text-black text-xl"></i>
+                    </a>   
+                    <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="decoration-transparent w-12 h-12 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
+                        <i class="fa-solid fa-eye text-black text-xl"></i>
+                    </a>
+                </div>
+
+
+
             </div>
             @endforeach
         </div>

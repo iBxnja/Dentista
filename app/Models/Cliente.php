@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
@@ -29,6 +30,12 @@ class Cliente extends Model
         $this->celular = $request->input('intCelular');
     }  
     
+
+    public function obtenerNombreApellido()
+    {
+        return Cliente::orderBy('idCliente')->select('idCliente', 'nombre', 'apellido')->get();
+    }
+
     public function obtenerTodos()
     {
         $sql = "SELECT
@@ -44,10 +51,22 @@ class Cliente extends Model
         return $lstRetorno;
     }
 
-    public function obtenerNombreApellido()
-    {
-        return Cliente::orderBy('idCliente')->select('idCliente', 'nombre', 'apellido')->get();
-    }
+    // public function traer()
+    // {
+    //     $sql = "SELECT
+    //               idCliente,
+    //               nombre,
+    //               apellido,
+    //               edad,
+    //               correo,
+    //               observacion,
+    //               celular
+    //             FROM clientes ORDER BY idCliente";
+    //     $lstRetorno = DB::select($sql);
+    //     return $lstRetorno;
+    // }
+
+
 
 
     public function guardar()

@@ -114,7 +114,7 @@ Route::prefix('inicio')->group(function () {
 Route::prefix('inicio')->group(function () {
     Route::get('/odontograma-listar', [ControladorOdontograma::class, 'index'])->name('odontograma-listar');
     Route::post('/odontograma-nuevo', [ControladorOdontograma::class, 'guardar']);
-    Route::get('/odontograma-nuevo', [ControladorOdontograma::class, 'enviarNombreApellido']);
+    // Route::get('/odontograma-nuevo', [ControladorOdontograma::class, 'enviar'])->name('enviar-nombres');
     Route::get('/odontograma-nuevo', [ControladorOdontograma::class, 'mostrar']);
     Route::get('/odontograma-listar/{id}/eliminar', [ControladorOdontograma::class, 'eliminar'])->name('odontograma.eliminar');
     // Route::get('/odontograma', [ControladorOdontograma::class, 'odontograma']);
