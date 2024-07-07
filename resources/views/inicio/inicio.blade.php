@@ -92,14 +92,14 @@
                 <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
                 <a href="{{route('odontograma-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de odontograma <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
             </div>
-            <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
+            {{-- <div class="w-5/12 cel:w-full h-full flex items-center justify-center flex-col text-teal-500 cel:mb-20">
                 <div class="">
                     <i class="fa-solid fa-box text-6xl"></i>
                 </div>
                 <h2 class="text-xl">Agregar un nuevo informe</h2>
                 <p class="w-11/12 font-light text-black text-center text-lg">Llevar un buen orden de los clientes ayuda a agilizar los trabajos, registros y no omitir ninguna tarea importante.</p>
                 <a href="{{route('informe-listar')}}" class="decoration-transparent text-lg text-teal-500">Ir a la seccion de informe <i class="ml-2 fa-solid fa-chevron-right text-sm"></i></a>
-            </div>
+            </div> --}}
             
         </div>
 

@@ -43,59 +43,73 @@
             </button>
         </a>
     </div>
-    <form class="w-full h-full flex items-center justify-center flex-col">
+    <form class="w-full h-full flex items-center justify-center flex-col ">
         <div class="w-11/12 h-20 bg-teal-300 shadow-md shadow-neutral-500 flex items-center justify-start cel:justify-center">
             <input type="text" name="buscarpor" id="buscarpor"
                 class=" text-center cel:w-7/12 w-1/4 h-10 cel:ml-0 ml-5 rounded-lg border-2 border-black"
                 placeholder="Buscar un cliente..." value="{{ $buscarpor }}">
             <button type="submit" class="cel:w-20 w-40 h-10 bg-green-500 text-white ml-5 rounded-lg">Buscar</button>
         </div>
-        <div class="w-11/12 h-20">
-            <table class="w-full flex items-center justify-center flex-col">
-                <thead
-                    class="w-full flex items-center justify-center bg-teal-300 shadow-md shadow-neutral-500 mt-3 mb-3 h-24 cel:hidden">
-                    <tr class="w-full flex items-center justify-center text-center">
-                        <th class="w-1/12 cel:text-sm text-2xl cel:hidden"></th>
-                        <th class="w-3/12 cel:text-sm text-2xl ">Cliente</th>
-                        <th class="w-2/12 cel:text-sm text-2xl ">N° Odontograma</th>
-                        <th class="w-4/12 cel:text-sm text-2xl ">Titular</th>
-                        {{-- <th class="w-1/12 cel:text-sm text-2xl ">Piezas</th> --}}
-                        <th class="w-2/12 cel:text-sm text-2xl"></th>
-                    </tr>
-                </thead>
-                <tbody class="w-full flex items-center justify-center flex-col mt-">
-                    @foreach ($aOdontograma as $odontograma)
-                    <tr
-                        class="shadow-md shadow-neutral-500 w-full flex cel:flex-col cel:h-full items-center justify-center text-center bg-teal-200 my-3 h-20">
-                        <td
-                            class="cel:w-full cel:py-3 w-1/12 cel:text-sm text-lg font-normal bg-teal-300 h-full grid place-items-center">
-                            <i class="fa-solid fa-circle-user text-5xl text-white"></i></td>
-                            {{-- <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal "> {{ $odontograma->cliente->nombre }} {{ $odontograma->cliente->apellido }}</td> --}}
-                            <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal ">Cliente</td>
-                        <td class="cel:w-full w-2/12 cel:text-sm text-lg font-normal ">{{$odontograma->numeroOdontograma}}</td>
-                        <td class="cel:w-full w-4/12 cel:text-sm text-lg font-normal ">{{$odontograma->titular}}</td>
-                        {{-- <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal ">{{$odontograma->piezasPadecientes}}</td> --}}
-                        <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
-                            <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
-                                <i class="fa-solid fa-eye text-black text-xl"></i>
-                            </a>
-                        </td>
-                        <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
-                            <a href="{{ isset($odontograma->idOdontograma) ? route('odontograma.eliminar', ['id' => $odontograma->idOdontograma]) : '' }}"
-                                class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl"
-                                name="btnEliminarCliente">
-                                <i class="fa-solid fa-trash text-black text-xl"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="w-11/12 h-full grid grid-cols-3 place-items-center items-center mb-10">
+            @foreach ($aOdontograma as $odontograma)
+            <div class="shadow-md shadow-neutral-500 w-11/12 h-96 bg-gradient-to-tr from-teal-500 via-teal-300 to-teal-600 rounded-xl mt-4 flex items-start justify-center flex-col">
+                <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-teal-500 text-white">Documento N° {{$odontograma->numeroOdontograma}}</span>
+                <h4 class="ml-3 mt-3 text-white">Nombre del cliente:</h4>
+                <h4 class="ml-3 font-light text-xl text-white">{{$odontograma->fk_idCliente}}</h4>
+                <h6 class="ml-3 font-light mt-3 text-white">Datos del paciente:</h6>
+                <div class="flex items-center justify-Start">
+                    <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-emerald-400 text-white">{{$odontograma->edad}} Años</span>
+                    {{-- <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-teal-500 text-white">{{$odontograma->localidad}}</span> --}}
+                    <span class="ml-3 w-auto px-2 mb-1 py-1 border-2 border-teal-600 rounded-xl bg-emerald-500 text-white">Concordia</span>
+                </div>
+            </div>
+            @endforeach
         </div>
-
-
 
     </form>
 </div>
 
 @endsection
+
+
+
+{{-- <div class="w-11/12 h-20">
+    <table class="w-full flex items-center justify-center flex-col">
+        <thead
+            class="w-full flex items-center justify-center bg-teal-300 shadow-md shadow-neutral-500 mt-3 mb-3 h-24 cel:hidden">
+            <tr class="w-full flex items-center justify-center text-center">
+                <th class="w-1/12 cel:text-sm text-2xl cel:hidden"></th>
+                <th class="w-3/12 cel:text-sm text-2xl ">Cliente</th>
+                <th class="w-2/12 cel:text-sm text-2xl ">N° Odontograma</th>
+                <th class="w-4/12 cel:text-sm text-2xl ">Titular</th>
+                <th class="w-2/12 cel:text-sm text-2xl"></th>
+            </tr>
+        </thead>
+        <tbody class="w-full flex items-center justify-center flex-col mt-">
+            @foreach ($aOdontograma as $odontograma)
+            <tr
+                class="shadow-md shadow-neutral-500 w-full flex cel:flex-col cel:h-full items-center justify-center text-center bg-teal-200 my-3 h-20">
+                <td
+                    class="cel:w-full cel:py-3 w-1/12 cel:text-sm text-lg font-normal bg-teal-300 h-full grid place-items-center">
+                    <i class="fa-solid fa-circle-user text-5xl text-white"></i></td> --}}
+                    {{-- <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal "> {{ $odontograma->cliente->nombre }} {{ $odontograma->cliente->apellido }}</td> --}}
+                    {{-- <td class="cel:w-full w-3/12 cel:text-sm text-lg font-normal ">Cliente</td>
+                <td class="cel:w-full w-2/12 cel:text-sm text-lg font-normal ">{{$odontograma->numeroOdontograma}}</td>
+                <td class="cel:w-full w-4/12 cel:text-sm text-lg font-normal ">{{$odontograma->titular}}</td>
+                <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
+                    <a href="/inicio/odontograma-mostrar/{{ $odontograma->idOdontograma }}" class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl">
+                        <i class="fa-solid fa-eye text-black text-xl"></i>
+                    </a>
+                </td>
+                <td class="cel:w-full w-1/12 cel:text-sm text-lg font-normal grid place-items-center cel:my-3">
+                    <a href="{{ isset($odontograma->idOdontograma) ? route('odontograma.eliminar', ['id' => $odontograma->idOdontograma]) : '' }}"
+                        class="decoration-transparent w-12 h-12 hover:w-14 hover:h-14 ease-in-out duration-100 cel:rounded-none cel:w-11/12 cel:border-2 cel:border-neutral-500 rounded-full bg-white grid place-items-center cel:text-base text-3xl"
+                        name="btnEliminarCliente">
+                        <i class="fa-solid fa-trash text-black text-xl"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div> --}}

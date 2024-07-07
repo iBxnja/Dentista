@@ -50,8 +50,8 @@
                             <div class="cel:w-full w-11/12 mt-5 cel:h-full h-72 text-white shadow-md shadow-neutral-500 flex flex-col items-start justify-center bg-gradient-to-tr from-teal-500 via-teal-300 to-teal-600 rounded-xl"> 
                                 <h4 class="ml-8 text-4xl font-extrabold uppercase">{{$clientes->nombre}}</h4>
                                 <h4 class="ml-8 text-4xl font-extrabold uppercase">{{$clientes->apellido}}</h4>
-                                <span class="ml-8 font-thin text-lg my-1">Benjavallory@hotmail.com</span>
-                                <span class="ml-8 font-thin text-lg">3454053077</span>
+                                <span class="ml-8 font-thin text-lg my-1">{{$clientes->correo}}</span>
+                                <span class="ml-8 font-thin text-lg">{{$clientes->celular}}</span>
                                 <div class="ml-8 flex w-full items-center justify-start cel:flex-col">
                                     <a href="" class="w-6/12 decoration-transparent text-white text-sm h-10 grid place-items-center rounded-lg bg-gradient-to-tr from-teal-600 via-teal-400 to-teal-600">VER HISTORIAL DEL CLIENTE</a>
                                     <span class="w-2/12 text-wihte text-sm h-10 grid place-items-center bg-gradient-to-tr from-teal-600 via-teal-400 to-teal-600 rounded-lg text-white ml-2">{{$clientes->dni}}</span>

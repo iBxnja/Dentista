@@ -15,7 +15,7 @@
         <a href="/inicio/imagenes-listar" class="lg:ml-5 lg:mr-5 xl:ml-5 xl:mr-5 2xl:mr-5 2xl:ml-5 text-white cel:text-lg lg:font-thin xl:font-thin 2xl:font-thin decoration-transparent">Imagenes</a>
         <a href="/inicio/cita-listar" class="lg:ml-5 lg:mr-5 xl:ml-5 xl:mr-5 2xl:mr-5 2xl:ml-5 text-white cel:text-lg lg:font-thin xl:font-thin 2xl:font-thin decoration-transparent">Citas</a>
         <a href="/inicio/odontograma-listar" class="lg:ml-5 lg:mr-5 xl:ml-5 xl:mr-5 2xl:mr-5 2xl:ml-5 text-white cel:text-lg lg:font-thin xl:font-thin 2xl:font-thin decoration-transparent">Odontograma</a>
-        <a href="/inicio/informe-listar" class="lg:ml-5 lg:mr-5 xl:ml-5 xl:mr-5 2xl:mr-5 2xl:ml-5 text-white cel:text-lg lg:font-thin xl:font-thin 2xl:font-thin decoration-transparent">Informe</a>
+        {{-- <a href="/inicio/informe-listar" class="lg:ml-5 lg:mr-5 xl:ml-5 xl:mr-5 2xl:mr-5 2xl:ml-5 text-white cel:text-lg lg:font-thin xl:font-thin 2xl:font-thin decoration-transparent">Informe</a> --}}
         {{-- @if(auth()->check())
         <li class="mr-10 ml-6 overflow-auto text-sm list-none text-white font-bold">Hola {{ auth()->user()->name }}</li>
         @endif --}}

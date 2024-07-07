@@ -41,8 +41,24 @@
                         <input type="text" name="txtEdad" id="txtEdad" class="w-full h-8 border-b-2 border-black focus:outline-none cel:text-center" placeholder="Escribe la edad del cliente. Ej: 20">
                     </div>
                 </div>
+                <div class="w-full h-full  flex items-center justify-around cel:flex-col">
+                    <div class="flex flex-col justify-center items-start w-5/12 cel:items-center cel:w-11/12">
+                        <label for="txtCorreo" class="text-xl mb-4 cel:text-sm cel:text-center">Correo</label>
+                        <input type="mail" name="txtCorreo" id="txtCorreo" class="w-full h-8 border-b-2 border-black focus:outline-none cel:text-center" placeholder="Escribe el dni del cliente. Ej: 11222333">
+                    </div>            
+                    <div class="flex flex-col justify-center items-start w-5/12 cel:items-center cel:w-11/12">
+                        <label for="intCelular" class="text-xl mb-4 cel:text-sm cel:text-center">Celular</label>
+                        <input type="int" name="intCelular" id="intCelular" class="w-full h-8 border-b-2 border-black focus:outline-none cel:text-center" placeholder="Escribe la edad del cliente. Ej: 20">
+                    </div>
+                </div>
+                <div class="w-full h-full  flex items-center justify-around cel:flex-col">
+                    <div class="flex flex-col justify-center items-start w-11/12 cel:items-center cel:w-11/12">
+                        <label for="txtObservacion" class="text-xl mb-4 cel:text-sm cel:text-center">Observacion del cliente</label>
+                        <textarea name="txtObservacion" id="txtObservacion" class="w-full h-40 resize-none rounded-lg border-2 border-black text-center"></textarea>
+                    </div>
+                </div>
             </div>
-            <button type="submit" name="btnAgregar" class="bg-teal-400 text-white w-64 h-40 mt-8 rounded-2xl shadow-md shadow-neutral-500">Agregar</button>
+            <button type="submit" name="btnAgregar" class="bg-teal-400 text-white shadow-md shadow-neutral-500 w-64 h-20 mt-8 rounded-2xl">Agregar</button>
         </form>
 
 

@@ -13,6 +13,7 @@ class Cliente extends Model
 
     protected $fillable = [
         'idCliente', 'nombre', 'apellido', 'edad', 'dni',
+        'correo', 'observacion','celular'
     ];
 
     protected $hidden = [];
@@ -23,6 +24,9 @@ class Cliente extends Model
         $this->apellido = $request->input('txtApellido');
         $this->dni = $request->input('txtDni');
         $this->edad = $request->input('txtEdad');
+        $this->correo = $request->input('txtCorreo');
+        $this->observacion = $request->input('txtObservacion');
+        $this->celular = $request->input('intCelular');
     }  
     
     public function obtenerTodos()
@@ -31,7 +35,10 @@ class Cliente extends Model
                   idCliente,
                   nombre,
                   apellido,
-                  edad
+                  edad,
+                  correo,
+                  observacion,
+                  celular
                 FROM clientes ORDER BY idCliente";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
@@ -52,6 +59,9 @@ class Cliente extends Model
         $cliente->apellido = $this->apellido;
         $cliente->edad = $this->edad;
         $cliente->dni = $this->dni;
+        $cliente->correo = $this->correo;
+        $cliente->observacion = $this->observacion;
+        $cliente->celular = $this->celular;
     
         // Guardar el nuevo registro en la base de datos
         $cliente->save();

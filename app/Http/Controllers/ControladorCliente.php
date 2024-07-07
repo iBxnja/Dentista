@@ -39,6 +39,11 @@ class ControladorCliente extends Controller
                 'id' => $cliente->idCliente,
                 'nombre' => $cliente->nombre,
                 'apellido' => $cliente->apellido,
+                'edad' => $cliente->edad,
+                'dni' => $cliente->dni,
+                'observacion' => $cliente->observacion,
+                'dni' => $cliente->dni,
+                'celular' => $cliente->celular,
             ]]);
             
             // Hacer un dd de la información del cliente en la sesión
@@ -61,6 +66,11 @@ class ControladorCliente extends Controller
                 'id' => $cliente->idCliente,
                 'nombre' => $cliente->nombre,
                 'apellido' => $cliente->apellido,
+                'edad' => $cliente->edad,
+                'dni' => $cliente->dni,
+                'observacion' => $cliente->observacion,
+                'dni' => $cliente->dni,
+                'celular' => $cliente->celular,
             ]]);
     
             // Eliminar el cliente

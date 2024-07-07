@@ -46,7 +46,7 @@
             </div>            
         </div>
     </div>
-    <button type="submit" name="btnAgregar" class="bg-teal-400 shadow-md shadow-neutral-500 text-white w-64 h-20 mt-8 rounded-2xl">Agregar</button>
+    <button type="submit" name="btnAgregar" class="bg-teal-400 text-white shadow-md shadow-neutral-500 w-64 h-20 mt-8 rounded-2xl">Agregar</button>
     </form>
 </section>
 @endsection

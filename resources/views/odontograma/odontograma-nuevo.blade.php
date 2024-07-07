@@ -19,11 +19,11 @@
                 <div class="w-9/12 h-full flex items-start justify-center flex-col gap-8">
                     <div class="ml-10 flex flex-col w-72">
                         <label for="">OBRA SOCIAL:</label>
-                        <input class="border-transparent border-b-2 border-b-teal-500 py-1 focus:outline-none text-neutral-500" type="text" name="obraSocial" id="">
+                        <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none text-neutral-500" type="text" name="obraSocial" id="">
                     </div>
                     <div class="ml-10 flex flex-col w-72">
                         <label for="">CODIGO N°:</label>
-                        <input class="border-transparent border-b-2 border-b-teal-500 py-1 focus:outline-none text-neutral-500" type="text" name="codigo" id="">
+                        <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none text-neutral-500" type="text" name="codigo" id="">
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
 
 
-        <button type="submit" onclick="obtenerDatos()">Cargar</button>
+        <button type="submit" class="bg-teal-400 text-white shadow-md shadow-neutral-500 w-64 h-14 my-8 rounded-2xl" onclick="obtenerDatos()">Agregar</button>
    </form>
 </section>
 

@@ -41,7 +41,7 @@
     
     
     
-    <div class="w-11/12 h-full grid grid-cols-2 mt-3 cel:justify-center cel:flex-col">
+    <div class="w-11/12 h-full place-items-center grid grid-cols-2 mt-3 cel:justify-center cel:flex-col">
       <!--foreach-->
       @foreach ($aNota as $nota)
       <div class="border-l-8 border-l-teal-600 w-11/12 h-48 bg-white flex flex-col items-start justify-center shadow-md shadow-neutral-500 rounded-xl">
