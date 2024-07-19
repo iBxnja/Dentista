@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Cita;
 use App\Models\Cliente;
+use App\Models\imagenes;
+use App\Models\Odontograma;
+use App\Models\Nota;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
@@ -99,4 +104,39 @@ class ControladorCliente extends Controller
     }
     
     
+    public function mostrarHistorial($id){
+        // Obtener el cliente por su ID
+        $cliente = Cliente::findOrFail($id);
+
+        $cliente = Cliente::find($id);
+        $clientes = new Cliente();
+        $aClientes = $clientes->obtenerTodos();
+        if (!$cliente) {
+            abort(404); // Devuelve un error 404 si la nota no existe
+        }
+
+
+        $imagenes = new imagenes();
+        $imagen = $imagenes->registrosCliente($id);
+
+        $notas = new Nota();
+        $nota = $notas->registrosCliente($id);
+
+        $Odontogramas = new Odontograma();
+        $Odontograma = $Odontogramas->registrosCliente($id);
+
+        $Citas = new Cita();
+        $Cita = $Citas->registrosCliente($id);
+
+
+        // dd([
+        //     'imagenes' => $imagen,
+        //     'nota' => $nota,
+        //     'Odontograma' => $Odontograma,
+        //     'Cita' => $Cita,
+        // ]);
+        return view('cliente.cliente-historial', compact('Cita','Odontograma','nota','imagen', 'cliente','aClientes'));
+    }
+
+
 }

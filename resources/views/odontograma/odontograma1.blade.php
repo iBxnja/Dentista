@@ -4,6 +4,7 @@
         <div class="ml-10 flex flex-col w-72">
             <label for="fk_idCliente">PACIENTE:</label>
             <select class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" name="fk_idCliente" id="fk_idCliente">
+                <option disabled selected>Seleccione un cliente</option>
                 @foreach ($aClientes as $cliente)
                     <option value="{{ $cliente->idCliente }}">{{ $cliente->nombre }} {{ $cliente->apellido }}</option>
                 @endforeach
@@ -30,21 +31,21 @@
         </div>
         <div class="ml-10 flex flex-col w-72">
             <label for="">AFILIADO N°:</label>
-            <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" name="afiliado" id="">
+            <input placeholder="1" class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" name="afiliado" id="">
         </div>
     </div>
     <div class="w-5/12 h-full flex items-start justify-center flex-col gap-8">
         <div class="ml-10 flex flex-col w-72">
             <label for="">AÑO:</label>
-            <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" inputmode="numeric" pattern="[0-9]*"name="anio" id="">
+            <input placeholder="2222" class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" inputmode="numeric" pattern="[0-9]*"name="anio" id="">
         </div>
         <div class="ml-10 flex flex-col w-72">
             <label for="">EDAD:</label>
-            <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" inputmode="numeric" pattern="[0-9]*" name="edad" id="">
+            <input placeholder="11" class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" inputmode="numeric" pattern="[0-9]*" name="edad" id="">
         </div>
         <div class="ml-10 flex flex-col w-72">
             <label for="">PLAN:</label>
-            <input class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" name="plan" id="">
+            <input placeholder="Plan de cuidado numero" class="border-transparent border-b-2 border-b-black py-1 focus:outline-none" type="text" name="plan" id="">
         </div>
     </div>
 </div>

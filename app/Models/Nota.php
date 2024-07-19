@@ -80,4 +80,21 @@ public function guardar()
     #--------------------------------------------------------------------------------------
 
 
+
+    public function registrosCliente($id){
+        // Construir la consulta SQL dinámica
+        $sql = "
+            SELECT * 
+            FROM notas 
+            WHERE fk_idCliente = ?
+        ";
+    
+        // Ejecutar la consulta con el ID proporcionado como parámetro
+        $registros = DB::select($sql, [$id]);
+    
+        // Retornar los resultados de la consulta
+        return $registros;
+    }
+
+
 }

@@ -59,24 +59,28 @@ class imagenes extends Model
         return $foto;
     }
 
-    // public function guardar()
-    // {
-    //     // Utiliza findOrNew para encontrar o crear una nueva instancia
-    //     $foto = imagenes::findOrNew($this->idImagen);
-
-    //     // Asigna valores a la instancia
-    //     $foto->imagen = $this->imagen;
-    //     $foto->titulo = $this->titulo;
-    //     $foto->texto = $this->texto;
-    //     $foto->fk_idCliente = $this->fk_idCliente;
-
-    //     // Guarda la imagen en la base de datos
-    //     $foto->save();
-    // }
-
     public function eliminar()
     {
         // Elimina el modelo por su clave primaria
         imagenes::destroy($this->idImagen);
     }
+
+
+    public function registrosCliente($id){
+        // Construir la consulta SQL dinámica
+        $sql = "
+            SELECT * 
+            FROM imagenes 
+            WHERE fk_idCliente = ?
+        ";
+    
+        // Ejecutar la consulta con el ID proporcionado como parámetro
+        $registros = DB::select($sql, [$id]);
+    
+        // Retornar los resultados de la consulta
+        return $registros;
+    }
+
+
+
 }

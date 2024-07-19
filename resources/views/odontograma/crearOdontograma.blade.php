@@ -63,7 +63,6 @@ $segundos5 = 5;
 @endphp
 
 <div class="w-11/12 h-full py-20 border-l-8 border-l-teal-500 bg-white flex flex-col items-center justify-center border-r-4 border-r-teal-500 shadow-md shadow-neutral-500">
-        
     <div class="w-9/12 flex items-center justify-center border-b-4 border-b-neutral-400">
 
 

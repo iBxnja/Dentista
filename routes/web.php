@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ControladorCalendario;
+use App\Http\Controllers\ControladorCita;
 use App\Http\Controllers\ControladorLogin;
 use App\Http\Controllers\ControladorCliente;
 use App\Http\Controllers\ControladorImagen;
@@ -100,6 +101,7 @@ Route::prefix('inicio')->group(function () {
     Route::get('/cliente-mostrar/{id}', [ControladorCliente::class, 'mostrarCliente'])->name('cliente-mostrar');
     // Route::get('/mostrar-clientes', [ControladorCliente::class, 'mostrarClientes'])->name('mostrar.clientes');
     // Route::get('/culturas', [culturaControlador::class, 'index']);
+    Route::get('/cliente-historial/{id}', [ControladorCliente::class, 'mostrarHistorial']);
 });
 #---------------------------------------------------------------#
 
@@ -163,7 +165,11 @@ Route::prefix('inicio')->group(function () {
     Route::get('/cita-listar/events', [ControladorCalendario::class, 'getEvents'])->name('cita-listar-events');
     Route::post('/cita-nuevo/crear', [ControladorCalendario::class, 'crearCita'])->name('cita-nuevo-crear');
     Route::get('/cita-listar/{id}/eliminar', [ControladorCalendario::class, 'eliminar'])->name('cita.eliminar');
-    Route::get('/cita-nuevo', [ControladorCalendario::class, 'enviarNombreApellido']);
+    Route::get('/cita-nuevo', [ControladorCalendario::class, 'enviarNombreApellido'])->name('cita-nuevo');
+
+    // ENVIAR UN CORREO
+    Route::get('/cita-correo', [ControladorCita::class, 'index'])->name('cita-correo');
+
 });
 
 

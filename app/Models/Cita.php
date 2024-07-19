@@ -61,20 +61,6 @@ class Cita extends Model
         // Opcional: Puedes retornar el modelo de Nota creado si lo necesitas
         return $cita;
     }
-    // public function guardar()
-    // {
-    //     $cita = Cita::updateOrCreate(
-    //         ['idCita' => $this->idCita],
-    //         [
-    //             'dia' => $this->dia,
-    //             'numero' => $this->numero,
-    //             'mes' => $this->mes,
-    //             'hora' => $this->hora,
-    //             'consulta' => $this->consulta,
-    //             'fk_idCliente' => $this->fk_idCliente,
-    //         ]
-    //     );
-    // }
 
 
     public function cliente()
@@ -96,5 +82,23 @@ class Cita extends Model
         $affected = DB::delete($sql, [$this->idCita]);
     }
     #--------------------------------------------------------------------------------------
+
+
+    public function registrosCliente($id){
+        // Construir la consulta SQL dinámica
+        $sql = "
+            SELECT * 
+            FROM citas 
+            WHERE fk_idCliente = ?
+        ";
+    
+        // Ejecutar la consulta con el ID proporcionado como parámetro
+        $registros = DB::select($sql, [$id]);
+    
+        // Retornar los resultados de la consulta
+        return $registros;
+    }
+
+
 
 }

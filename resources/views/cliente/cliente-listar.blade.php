@@ -53,7 +53,7 @@
                                 <span class="ml-8 font-thin text-lg my-1">{{$clientes->correo}}</span>
                                 <span class="ml-8 font-thin text-lg">{{$clientes->celular}}</span>
                                 <div class="ml-8 flex w-full items-center justify-start cel:flex-col">
-                                    <a href="" class="w-6/12 decoration-transparent text-white text-sm h-10 grid place-items-center rounded-lg bg-gradient-to-tr from-teal-600 via-teal-400 to-teal-600">VER HISTORIAL DEL CLIENTE</a>
+                                    <a href="/inicio/cliente-historial/{{ $clientes->idCliente }}" class="w-6/12 decoration-transparent text-white text-sm h-10 grid place-items-center rounded-lg bg-gradient-to-tr from-teal-600 via-teal-400 to-teal-600">VER HISTORIAL DEL CLIENTE</a>
                                     <span class="w-2/12 text-wihte text-sm h-10 grid place-items-center bg-gradient-to-tr from-teal-600 via-teal-400 to-teal-600 rounded-lg text-white ml-2">{{$clientes->dni}}</span>
                                     <span class="w-2/12 text-wihte text-sm h-10 grid place-items-center bg-gradient-to-tr from-teal-600 via-teal-400 to-teal-600 rounded-lg text-white ml-2">{{$clientes->edad}} AÑOS</span>
                                 </div>

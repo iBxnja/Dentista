@@ -72,7 +72,7 @@ class ControladorImagen extends Controller
             try {
                 #subo la imagen
                 $subirImagen = $imagen->move($urlImagen, $nombreImagen);
-                print_r($subirImagen);
+                // print_r($subirImagen);
                 // Uso Eloquent para crear y guardar el modelo
                 $nuevaImagen = imagenes::create([
                     'imagen' => $urlImagen . $nombreImagen,
@@ -105,92 +105,6 @@ class ControladorImagen extends Controller
     }
 
 
-
-    #-------------------------------
-
-
-    // public function guardar(Request $request)
-    // {
-
-    //     $request->validate([
-    //         'lstfk_idCliente' => 'required',
-    //         'txtTitulo' => 'required',
-    //         'txtTexto' => 'required',
-    //         'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-
-    //     ]);
-    //     // dd($request->all());
-    //     if ($request->hasFile('imagen')) {
-    //         $imagen = $request->file('imagen');
-    //         $nombreImagen = time() . '-' . $imagen->getClientOriginalName();
-
-    //         try {
-    //             // Guardar la imagen en el directorio storage/app/public/imagenes
-    //             $rutaImagen = $imagen->storeAs('app/public/imagenes', $nombreImagen);
-
-    //             // Obtener la URL de la imagen almacenada en storage
-    //             $urlImagen = Storage::url($rutaImagen);
-    //             // print_r($rutaImagen);
-    //             // print_r("°|°|°|°");
-    //             // print_r($urlImagen);
-    //             // dd($request->rutaImagen);
-    //             // dd($request->nombreImagen);
-    //             // Crear un nuevo registro en la base de datos
-    //             $nuevaImagen = Imagenes::create([
-    //                 'imagen' => $urlImagen,
-    //                 'titulo' => $request->input('txtTitulo'),
-    //                 'texto' => $request->input('txtTexto'),
-    //                 'fk_idCliente' => $request->input('lstfk_idCliente'),
-    //             ]);
-
-    //             // Almacenar información de la imagen en la sesión antes de mostrar el mensaje
-    //             session(['imagenGuardada' => [
-    //                 'id' => $nuevaImagen->idImagen, // Asegúrate de ajustar el nombre de la columna según tu modelo
-    //                 'titulo' => $nuevaImagen->titulo, // Asegúrate de ajustar el nombre de la columna según tu modelo
-    //                 'texto' => $nuevaImagen->texto, // Asegúrate de ajustar el nombre de la columna según tu modelo
-    //                 'fk_idCliente' => $nuevaImagen->fk_idCliente, // Asegúrate de ajustar el nombre de la columna según tu modelo
-    //                 // Puedes agregar más campos según sea necesario
-    //             ]]);
-
-    //             // Mensaje de éxito
-    //             $mensaje = "¡Excelente, se agregó correctamente la imagen!";
-    //             return view('inicio.inicio', compact('mensaje')); 
-    //             // Hacer un dd del contenido de la sesión imagenGuardada
-    //             // dd(session('imagenGuardada'));
-    //         } catch (\Exception $e) {
-    //             $error = "¡Parece que ocurrió un error!.";
-    //             return view('inicio.inicio', compact('error'));  
-    //         }
-    //     } else {
-    //         $error = "¡Parece que ocurrió un error!.";
-    //         return view('inicio.inicio', compact('error'));  
-    //     }
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function eliminar($id)
     {
         $imagen = imagenes::find($id);
@@ -220,4 +134,11 @@ class ControladorImagen extends Controller
             return view('inicio.inicio', compact('error'));
         }
     }
+
+
+
+    
+
+
+
 }
