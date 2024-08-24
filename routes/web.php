@@ -167,9 +167,6 @@ Route::prefix('inicio')->group(function () {
     Route::get('/cita-listar/{id}/eliminar', [ControladorCalendario::class, 'eliminar'])->name('cita.eliminar');
     Route::get('/cita-nuevo', [ControladorCalendario::class, 'enviarNombreApellido'])->name('cita-nuevo');
 
-    // ENVIAR UN CORREO
-    Route::get('/cita-correo', [ControladorCita::class, 'index'])->name('cita-correo');
-
 });
 
 
